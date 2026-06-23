@@ -19,19 +19,6 @@ This repository implements a production-ready ETL architecture designed to colle
 - **Data Manipulation:** Pandas / NumPy
 - **Database:** PostgreSQL 
 - **Containerization:** Docker & Docker Compose
-
-## 📁 Repository Structure
-```text
-weather-etl-pipeline/
-│
-├── dags/                  # Apache Airflow DAGs for pipeline orchestration
-│   └── weather_etl.py     # Main DAG script containing Extract, Transform, Load tasks (e.g., PostgreSQL, MySQL, or AWS S3/Redshift) 
-│
-├── config/                # Configuration files and database configurations
-│
-├── scripts/               # Helper Python modules or standalone scripts
-│   └── transform_data.py  # Specific processing or validation logic
-│
 ├── .env.example           # Example file for environment variables
 ├── docker-compose.yaml    # Docker setup for Airflow/Database environments
 ├── requirements.txt       # Python dependencies
