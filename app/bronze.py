@@ -6,7 +6,6 @@ from minio import Minio
 
 
 def save_to_bronze(records):
-    """Save raw weather data to MinIO Bronze layer."""
     
     client = Minio(
         os.getenv("MINIO_ENDPOINT", "minio:9000"),
