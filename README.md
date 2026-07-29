@@ -321,8 +321,8 @@ I'm a fresh graduate Data Engineer building real-world projects to learn and sho
 - **Data Visualization** with Power BI
 
 **Connect with me:**
-- LinkedIn: [your-linkedin-url]
-- Email: your.email@example.com
+- LinkedIn: https://www.linkedin.com/in/negad-youcef-3110b0277/
+- Email: mrnegadyoucef@gmail.com
 
 ---
 
@@ -333,7 +333,3 @@ I'm a fresh graduate Data Engineer building real-world projects to learn and sho
 - [dbt Documentation](https://docs.getdbt.com/)
 - [Apache Spark Documentation](https://spark.apache.org/docs/latest/)
 - [MinIO Documentation](https://min.io/docs/minio/linux/index.html)
-
----
-
-> ⭐ **Star this repo** if you found it helpful — and feel free to fork it for your own portfolio!
