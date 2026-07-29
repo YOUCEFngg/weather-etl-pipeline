@@ -2,10 +2,11 @@ import os
 import pandas as pd
 from sqlalchemy import create_engine
 from pyspark.sql import SparkSession
+from delta import configure_spark_with_delta_pip
 
 
 def get_spark_session(app_name="WeatherLoad"):
-    spark = (
+    builder = (
         SparkSession.builder
         .appName(app_name)
         .master("local[*]")
@@ -14,8 +15,8 @@ def get_spark_session(app_name="WeatherLoad"):
             "spark.sql.catalog.spark_catalog",
             "org.apache.spark.sql.delta.catalog.DeltaCatalog",
         )
-        .getOrCreate()
     )
+    spark = configure_spark_with_delta_pip(builder).getOrCreate()
     spark.sparkContext.setLogLevel("WARN")
     return spark
 
@@ -32,9 +33,8 @@ engine = create_engine(
 def load_data():
     """
     Read from Silver Delta Lake and load into PostgreSQL.
-    This replaces the old direct-from-API approach.
     """
-    print("\n Reading from Silver Delta Lake...")
+    print("\nReading from Silver Delta Lake...")
     
     spark = get_spark_session()
     silver_path = "/app/data/silver/weather"
@@ -54,5 +54,5 @@ def load_data():
         index=False
     )
     
-    print(f"    Loaded {len(df)} records into PostgreSQL (weather_silver)")
+    print(f"   Loaded {len(df)} records into PostgreSQL (weather_silver)")
     spark.stop()
