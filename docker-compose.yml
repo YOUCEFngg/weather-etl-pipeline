@@ -96,6 +96,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./app:/opt/airflow/app
       - ./data:/app/data
+      - ./dbt:/opt/airflow/dbt
     command: >
       bash -c "airflow db migrate &&
                airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com || true"
@@ -122,6 +123,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./app:/opt/airflow/app
       - ./data:/app/data
+      - ./dbt:/opt/airflow/dbt
     ports:
       - "8081:8080"
     command: webserver
@@ -148,6 +150,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./app:/opt/airflow/app
       - ./data:/app/data
+      - ./dbt:/opt/airflow/dbt
     command: scheduler
 
 volumes:

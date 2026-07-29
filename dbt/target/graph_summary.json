@@ -1,0 +1,1 @@
+{"_invocation_id": "f88937fa-a950-46cd-8806-e304a4c564af", "linked": {"0": {"name": "source.weather_dbt.silver.weather_silver", "type": "source", "succ": [1, 2]}, "1": {"name": "model.weather_dbt.gold_daily_weather", "type": "model"}, "2": {"name": "model.weather_dbt.gold_weather_summary", "type": "model"}}}

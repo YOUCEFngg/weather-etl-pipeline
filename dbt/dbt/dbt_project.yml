@@ -1,0 +1,16 @@
+name: 'weather_dbt'
+version: '1.0.0'
+config-version: 2
+
+profile: 'weather_profile'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+models:
+  weather_dbt:
+    gold:
+      +materialized: table
+      +schema: gold

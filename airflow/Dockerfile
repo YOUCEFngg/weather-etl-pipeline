@@ -8,6 +8,7 @@ RUN apt-get update --fix-missing && \
     default-jre-headless \
     curl \
     ca-certificates \
+    git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -22,4 +23,6 @@ RUN pip install --no-cache-dir \
     psycopg2-binary \
     minio \
     pyspark==3.5.0 \
-    delta-spark==3.2.0
+    delta-spark==3.2.0 \
+    dbt-core \
+    dbt-postgres
