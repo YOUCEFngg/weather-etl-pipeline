@@ -2,19 +2,24 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install Java and other deps - using default-jre-headless (lighter, works everywhere)
+RUN apt-get update --fix-missing && \
+    apt-get install -y --no-install-recommends \
     gcc \
     libpq-dev \
     curl \
+    default-jre-headless \
+    ca-certificates \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/usr/lib/jvm/default-java
+ENV PATH=$JAVA_HOME/bin:$PATH
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy wait-for-db from root
 COPY wait-for-db.py .
-
-# Copy your app files from app/ folder into /app/ in container
 COPY app/ .
 
 CMD ["python", "main.py"]

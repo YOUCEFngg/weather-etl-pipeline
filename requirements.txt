@@ -4,3 +4,5 @@ sqlalchemy
 psycopg2-binary
 python-dotenv
 minio
+pyspark==3.5.0
+delta-spark==3.2.0
